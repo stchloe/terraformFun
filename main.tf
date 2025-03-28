@@ -32,4 +32,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     network_plugin    = "azure"
     load_balancer_sku = "basic" # Basic SKU load balancer
   }
+
+  depends_on = [azurerm_resource_provider_registration.my_rp_containerservice]
+}
+
+resource "azurerm_resource_provider_registration" "my_rp_containerservice" {
+  name = "Microsoft.ContainerService"
 }
