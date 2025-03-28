@@ -33,3 +33,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     load_balancer_sku = "basic" # Basic SKU load balancer
   }
 }
+
+resource "azurerm_resource_provider_registration" "my_rp_containerservice" {
+  name = "Microsoft.ContainerService"
+}
